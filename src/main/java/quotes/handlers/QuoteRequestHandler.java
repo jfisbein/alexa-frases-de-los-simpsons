@@ -22,7 +22,7 @@ public class QuoteRequestHandler implements RequestHandler {
         Quote q = QuoteService.randomQuote();
         System.out.println("Quoute -> " + q);
 
-        String speechText = "Aquí tienes una frase famosa de la película \"" + q.getMovie() + "\": \"" + q.getText() + "\".";
+        String speechText = "Aquí tienes una frase famosa de \"" + q.getCharacter() + "\": \"" + q.getText() + "\".";
         return input.getResponseBuilder()
                 .withSpeech(speechText)
                 .withSimpleCard(QuotesStreamHandler.SKILL_TITLE, speechText)

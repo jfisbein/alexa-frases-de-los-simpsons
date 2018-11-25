@@ -11,6 +11,11 @@ buildscript {
     }
 }
 
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '1.14'
+    id 'java'
+}
+
 apply plugin: 'java'
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'jp.classmethod.aws.lambda'
@@ -27,6 +32,7 @@ repositories {
     jcenter()
 }
 
+
 dependencies {
     compile 'com.amazon.alexa:ask-sdk:2.7.2'
 
@@ -34,6 +40,7 @@ dependencies {
     compile 'org.slf4j:slf4j-api:1.7.10'
     compile 'com.amazonaws:aws-lambda-java-log4j:1.0.0'
 }
+
 
 task buildZip(type: Zip) {
     from compileJava
@@ -48,7 +55,7 @@ aws {
 }
 
 task deploy(type: AWSLambdaMigrateFunctionTask, dependsOn: build) {
-    functionName = "alexa-frases-peliculas"
+    functionName = "alexa-frases-simpsons"
     handler = "quotes.QuotesStreamHandler"
     role = "arn:aws:iam::${aws.accountId}:role/lambda_basic_execution"
     runtime = Runtime.Java8

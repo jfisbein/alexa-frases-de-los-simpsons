@@ -20,7 +20,7 @@ public class LaunchRequestHandler implements RequestHandler {
 
     @Override
     public Optional<Response> handle(HandlerInput input) {
-        String speechText = "Bienvenido a \"Frases famosas de películas\". Me puedes pedir una frase famosa.";
+        String speechText = "Bienvenido a \"Frases famosas de Los Simpsons\". Me puedes pedir una frase famosa.";
         return input.getResponseBuilder()
                 .withSimpleCard(QuotesStreamHandler.SKILL_TITLE, speechText)
                 .withSpeech(speechText)
