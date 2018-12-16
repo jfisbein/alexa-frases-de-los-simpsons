@@ -183,10 +183,6 @@ public class QuoteService {
             new Quote("Nelson", "Mi padre no me abandonó, sólo se fue al mercado... ¿verdad que si, mami?")
     );
 
-    public static void main(String[] args) {
-        FRASES_SIMPSONS.forEach(fs -> System.out.println(fs.getText()));
-    }
-
     public static Quote randomQuote() {
         int pos = new Random().nextInt(FRASES_SIMPSONS.size());
         return FRASES_SIMPSONS.get(pos);
